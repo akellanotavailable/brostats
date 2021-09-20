@@ -17,8 +17,8 @@ export class TaskStatusComponent implements OnInit {
   users: User[];
 
   constructor(private tasksServce: TasksService, private usersService: UsersService ) {
-    this.taskList = tasksServce.getTasks();
-    this.users = usersService.getUsers();
+    this.taskList = tasksServce.getRestTasks();
+    this.users = usersService.getRestUsers();
    }
 
   ngOnInit(): void {

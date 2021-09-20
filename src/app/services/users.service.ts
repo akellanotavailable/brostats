@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TaskStatus } from '../models/task-status.model';
+import { UserTaskStatus } from '../models/user-task-status.model';
 import { User } from '../models/user.model';
 
 
@@ -8,9 +10,9 @@ import { User } from '../models/user.model';
 })
 export class UsersService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  private users: User[];
+  private users: User[] = new Array;
   private usersMock: User[] = [
     {
       loginGithub: "akella", loginSlack: "", taskStatuses: [
@@ -52,7 +54,19 @@ export class UsersService {
     }
   ];
 
-  getUsers(): User[] {
+  getMockUsers(): User[] {
     return this.usersMock;
   }
+
+  getRestUsers(): User[] {
+    this.users = [];
+    this.http.get('http://localhost:8080/users').subscribe(
+      (data: any) => {
+        data.forEach((element: { loginGithub: string; loginSlack: string; taskStatuses: UserTaskStatus[]; }) => {
+          this.users.push(new User(element.loginGithub, element.loginSlack, element.taskStatuses));
+        });
+      });
+    return this.users;
+  }
+
 }
