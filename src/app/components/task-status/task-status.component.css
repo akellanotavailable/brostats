@@ -1,0 +1,29 @@
+table {
+    margin-top: 10px;
+}
+
+.vertical {
+    width: calc(5%);
+    height: auto;
+    writing-mode: vertical-lr;
+}
+
+.ready_for_review {
+    display: table-cell !important;
+    background: #008672 !important;
+}
+
+.changes_requested {
+    display: table-cell !important;
+    background: #d73a4a !important;
+}
+
+.done {
+    display: table-cell !important;
+    background: #3bbf5a !important;
+}
+
+.pull_request {
+    display: table-cell !important;
+    background: #9ea9b3 !important;
+}

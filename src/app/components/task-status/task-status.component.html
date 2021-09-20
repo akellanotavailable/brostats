@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">SlackName or DiscordName</th>
+            <th scope="col">GitName</th>
+            <th *ngFor="let task of taskList" scope="col" class="vertical">{{task.name}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users;">
+            <th>{{user.loginSlack}}</th>
+            <th>{{user.loginGithub}}</th>
+            <th *ngFor="let taskStatus of user.taskStatuses;" [ngClass]="{
+                'pull_request':isTaskStatusEqual(taskStatus.status, 'PULL'),
+                'done':isTaskStatusEqual(taskStatus.status, 'DONE'),
+                'changes_requested':isTaskStatusEqual(taskStatus.status, 'CHANGES_REQUESTED'),
+                'ready_for_review':isTaskStatusEqual(taskStatus.status, 'READY_FOR_REVIEW')
+            } ">
+            </th>
+        </tr>
+    </tbody>
+</table>

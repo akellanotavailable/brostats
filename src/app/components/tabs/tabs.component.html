@@ -1,0 +1,8 @@
+<div>
+    <button type="button" name="taskstatus"
+    [ngClass]="{'btn':true, 'btn-secondary':!isTaskStatus, 'btn-primary':isTaskStatus, 'tab-width':true}"
+    (click)="setIsTaskStatus(true)" routerLink="/task-status">Task Status</button>
+    <button type="button" name="leaderboard"
+        [ngClass]="{'btn':true, 'btn-secondary':isTaskStatus, 'btn-primary':!isTaskStatus, 'tab-width':true}"
+        (click)="setIsTaskStatus(false)" routerLink="/leaderboard">Leaderboard</button>
+</div>
