@@ -25,10 +25,4 @@ export class TaskStatusComponent implements OnInit {
     
   }
 
-  isTaskStatusEqual(taskStatus: TaskStatus, statusExpected: string) : boolean {
-    if (taskStatus == statusExpected) {
-      return true;
-    }
-    else { return false; }
-  }
 }

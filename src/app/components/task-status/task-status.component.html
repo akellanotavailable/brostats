@@ -11,10 +11,10 @@
             <th>{{user.loginSlack}}</th>
             <th>{{user.loginGithub}}</th>
             <th *ngFor="let taskStatus of user.taskStatuses;" [ngClass]="{
-                'pull_request':isTaskStatusEqual(taskStatus.status, 'PULL'),
-                'done':isTaskStatusEqual(taskStatus.status, 'DONE'),
-                'changes_requested':isTaskStatusEqual(taskStatus.status, 'CHANGES_REQUESTED'),
-                'ready_for_review':isTaskStatusEqual(taskStatus.status, 'READY_FOR_REVIEW')
+                'pull_request': taskStatus.status === 'PULL',
+                'done': taskStatus.status ===  'DONE',
+                'changes_requested':taskStatus.status ===  'CHANGES_REQUESTED',
+                'ready_for_review':taskStatus.status === 'READY_FOR_REVIEW'
             } ">
             </th>
         </tr>
