@@ -9,21 +9,17 @@ table {
 }
 
 .ready_for_review {
-    display: table-cell !important;
-    background: #008672 !important;
+    background: #008672;
 }
 
 .changes_requested {
-    display: table-cell !important;
-    background: #d73a4a !important;
+    background: #d73a4a;
 }
 
 .done {
-    display: table-cell !important;
-    background: #3bbf5a !important;
+    background: #3bbf5a;
 }
 
 .pull_request {
-    display: table-cell !important;
-    background: #9ea9b3 !important;
+    background: #9ea9b3;
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { Task } from 'src/app/models/task.model';
-import { TaskStatus } from 'src/app/models/task-status.model';
 import { UsersService } from 'src/app/services/users.service';
 import { TasksService } from 'src/app/services/tasks.service';
 
@@ -12,17 +11,30 @@ import { TasksService } from 'src/app/services/tasks.service';
 })
 export class TaskStatusComponent implements OnInit {
 
-  taskList: Task[];
+  tasks: Task[];
 
   users: User[];
 
-  constructor(private tasksServce: TasksService, private usersService: UsersService ) {
-    this.taskList = tasksServce.getRestTasks();
-    this.users = usersService.getRestUsers();
-   }
+  constructor(private tasksService: TasksService, private usersService: UsersService) {
+  }
 
   ngOnInit(): void {
-    
+    this.getTasks();
+    this.getUsers();
+  }
+
+  getTasks(): void {
+    this.tasksService.getRestTasks().subscribe(
+      data => {
+        this.tasks = data;
+      });
+  }
+
+  getUsers(): void {
+    this.usersService.getRestUsers().subscribe(
+      data => {
+        this.users = data;
+      });
   }
 
 }

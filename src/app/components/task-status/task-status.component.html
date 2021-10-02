@@ -3,20 +3,20 @@
         <tr>
             <th scope="col">SlackName or DiscordName</th>
             <th scope="col">GitName</th>
-            <th *ngFor="let task of taskList" scope="col" class="vertical">{{task.name}}</th>
+            <th *ngFor="let task of tasks" scope="col" class="vertical">{{task.name}}</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let user of users;">
-            <th>{{user.loginSlack}}</th>
-            <th>{{user.loginGithub}}</th>
-            <th *ngFor="let taskStatus of user.taskStatuses;" [ngClass]="{
+            <td>{{user.loginSlack}}</td>
+            <td>{{user.loginGithub}}</td>
+            <td *ngFor="let taskStatus of user.taskStatuses;" [ngClass]="{
                 'pull_request': taskStatus.status === 'PULL',
                 'done': taskStatus.status ===  'DONE',
                 'changes_requested':taskStatus.status ===  'CHANGES_REQUESTED',
                 'ready_for_review':taskStatus.status === 'READY_FOR_REVIEW'
             } ">
-            </th>
+            </td>
         </tr>
     </tbody>
 </table>

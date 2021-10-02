@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'brotasks';
+  private title = environment.title;
+  private apiURL = environment.apiURL;
+
+  ngOnInit(): void {
+    console.log(this.title);
+    console.log(this.apiURL);
+  }
 }
